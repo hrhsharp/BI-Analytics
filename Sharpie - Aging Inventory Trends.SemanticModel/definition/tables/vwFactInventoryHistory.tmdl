@@ -1,0 +1,518 @@
+table vwFactInventoryHistory
+	lineageTag: a92412fa-9679-4eb4-847e-bc1168127d68
+
+	measure '6M&O Value' = sum(vwFactInventoryHistory[Inv Value 6M&O])
+		lineageTag: 9563b394-0fa4-4431-b903-24faa3b70aea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ave Age in Months' = DATEDIFF(AVERAGEX(vwFactInventoryHistory,vwFactInventoryHistory[Stored Date]),NOW(),MONTH)
+		formatString: 0
+		lineageTag: cd377f4e-f060-4701-b66f-7bd869fcb5be
+
+	measure Change_LYR_Current =
+			IF ([LEOY Value] <> BLANK() && [Current Value] <> BLANK(),[Current Value]-[LEOY Value],
+			IF( [LEOY Value] = BLANK() && [Current Value] <> BLANK(),[Current Value],
+			IF([LEOY Value] <> BLANK()&& [Current Value] = BLANK(),[Current Value]-[LEOY Value],
+			IF([Current Value]=BLANK() && [LEOY Value] = BLANK(),0))))
+		lineageTag: 1a862cb6-3d3b-451a-87a1-624b65e82081
+
+	measure 'Current Value' = ```
+			CALCULATE(SUM(vwFactInventoryHistory[LotValue]),FILTER(vwFactInventoryHistory,vwFactInventoryHistory[Current] = "C")) 
+			```
+		lineageTag: 1e518647-ac13-4d52-b292-33419e6a76bb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current Y&O Value' = sum(vwFactInventoryHistory[Inv Value Y&O])
+		lineageTag: 31a07a48-4be2-4bf6-959b-5b478f870e43
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Decrease Change' = IF ([Change_LYR_Current] <> BLANK() , [Change_LYR_Current], 0)
+		formatString: 0
+		lineageTag: 35347a96-dec4-4f7d-bef1-6100523a8b82
+
+	measure 'Effective Value' = VAR effval = IF (vwFactInventoryHistory[Current Value] > 0, vwFactInventoryHistory[Current Value], vwFactInventoryHistory[NonCurrent Value]) RETURN IF(effval = 0, BLANK(),effval)
+		lineageTag: 0513a354-8459-4e45-b489-889ea8125d09
+
+	measure 'Inventory Value' = sum(vwFactInventoryHistory[LotValue])
+		lineageTag: b22752c6-5329-4ce3-b23d-995d5a38656a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'LEOY Value' = CALCULATE([NonCurrent Value],FILTER(vwFactInventoryHistory,vwFactInventoryHistory[Snap Shot Date] = DATE(YEAR(TODAY())-1,12,27)))
+		lineageTag: 398b1b64-3121-4b1f-a7d4-cdf8214608bb
+
+	measure LotVal = COALESCE(SUM(vwFactInventoryHistory[LotValue]),0)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ba2e5f2c-9550-446b-8043-f28d9cedc6dd
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Max Age in Months' = DATEDIFF(MINx(vwFactInventoryHistory,vwFactInventoryHistory[Stored Date]),NOW(),MONTH)
+		formatString: 0
+		lineageTag: e22032b7-9d97-49cf-884c-04c78721217e
+
+	measure 'NonCurrent Value' = CALCULATE(SUM(vwFactInventoryHistory[LotValue]),FILTER(vwFactInventoryHistory,vwFactInventoryHistory[Current] <> "C"))
+		lineageTag: 572e5620-0cd4-45e3-99e9-0d99a7168e7e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Product Count' = DISTINCTCOUNT(vwFactInventoryHistory[Friendly Product ID])
+		formatString: 0
+		lineageTag: a5438a35-4ac7-4290-8d51-be4948cc26c2
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cae326f-6fd2-4a52-8612-6275b04b241e
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: ca872676-22ae-425c-8b58-881481666cd2
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source System Name'
+		dataType: string
+		lineageTag: 964db410-d4ba-4224-b697-9f6f7012a458
+		summarizeBy: none
+		sourceColumn: Source System Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 5ffad5bc-8423-48ce-b4fa-8d2aed281acf
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Warehouse Location'
+		dataType: string
+		lineageTag: b0636cff-6d7c-4ae0-82eb-c3fc0f63da63
+		summarizeBy: none
+		sourceColumn: Warehouse Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Number'
+		dataType: string
+		lineageTag: 2cf2240a-8c23-4f0a-9f39-58d4f013a648
+		summarizeBy: none
+		sourceColumn: Product Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lot
+		dataType: string
+		lineageTag: 9e946478-89c1-4c33-9a84-c64d144099af
+		summarizeBy: none
+		sourceColumn: Lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Type'
+		dataType: string
+		lineageTag: a70faf6e-4876-4b42-a530-412363d8ac2d
+		summarizeBy: none
+		sourceColumn: Lot Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Production Order Number'
+		dataType: string
+		lineageTag: 652f6c59-e01e-4f3c-8058-42e65ece0bc7
+		summarizeBy: none
+		sourceColumn: Production Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Production Order Line'
+		dataType: string
+		lineageTag: 72a9248a-af1e-41bd-a411-a355f8fa1a71
+		summarizeBy: none
+		sourceColumn: Production Order Line
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Order Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e23c0e51-eac8-4928-8033-ce41eaf3b596
+		summarizeBy: none
+		sourceColumn: Product Order Date
+
+		variation Variation
+			isDefault
+			relationship: 3bd4c442-d6d5-41b0-a9b5-313e22cfa628
+			defaultHierarchy: LocalDateTable_efe0233f-4f79-4c82-9a29-7f0b34954d59.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Order Date SID'
+		dataType: int64
+		formatString: 0
+		lineageTag: b77080cc-89c9-489c-a366-2fabcd6697b6
+		summarizeBy: count
+		sourceColumn: Product Order Date SID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Unit Value'
+		dataType: double
+		lineageTag: 0215b2db-0bca-479e-8cad-9d7c6f3ac24d
+		summarizeBy: sum
+		sourceColumn: Lot Unit Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Lot Unit Transfer Cost'
+		dataType: double
+		lineageTag: c92add39-5008-4306-b519-b9ce708b46ee
+		summarizeBy: sum
+		sourceColumn: Lot Unit Transfer Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Stored Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d889e958-20ce-40c1-b9ba-0e1df28c8458
+		summarizeBy: none
+		sourceColumn: Stored Date
+
+		variation Variation
+			isDefault
+			relationship: 667a6a3d-478e-431c-b03c-ce905181cc91
+			defaultHierarchy: LocalDateTable_0388cc51-a2dd-428e-bbfa-7fdaaac9b126.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Stored Date SID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 171cc3ca-abc6-4270-af34-8ae99ba21bae
+		summarizeBy: count
+		sourceColumn: Stored Date SID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Storage UOM'
+		dataType: string
+		lineageTag: f1a8dfe2-438a-40ad-9831-f0935f1abefd
+		summarizeBy: none
+		sourceColumn: Storage UOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Storage UOM Quantity'
+		dataType: double
+		lineageTag: 70efff9e-0aef-42f9-a917-0055df6bd1ba
+		summarizeBy: sum
+		sourceColumn: Storage UOM Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Storage UOM Conversion Factor'
+		dataType: double
+		lineageTag: 381d3c70-eb72-402d-a42e-9c097743714c
+		summarizeBy: sum
+		sourceColumn: Storage UOM Conversion Factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Storage Each Quantity'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 29eff20a-8894-415f-acb3-3173681b8407
+		summarizeBy: sum
+		sourceColumn: Storage Each Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column pbiProductJoin
+		dataType: string
+		lineageTag: eea33773-b1e6-421c-9a2d-a94456e9d43f
+		summarizeBy: none
+		sourceColumn: pbiProductJoin
+
+		annotation SummarizationSetBy = Automatic
+
+	column pbiJoinCustomers
+		dataType: string
+		lineageTag: 4d504fa3-b3d7-48ca-bf55-c3f4a32cfebb
+		summarizeBy: none
+		sourceColumn: pbiJoinCustomers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Snap Shot Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8690f822-9254-40a0-9169-84dc42ab3b4e
+		summarizeBy: none
+		sourceColumn: Snap Shot Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column LotValue
+		dataType: double
+		lineageTag: 034a9232-4318-4432-abe1-0d191d5c943e
+		summarizeBy: sum
+		sourceColumn: LotValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inv Value 6M&O'
+		dataType: double
+		lineageTag: 67e86d5b-3d5f-47f9-8af5-ae5b38ff06fb
+		summarizeBy: sum
+		sourceColumn: Inv Value 6M&O
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inv Value Y&O'
+		dataType: double
+		lineageTag: 0bff72f1-7478-4ebe-ac6f-06ac5f0f4c6c
+		summarizeBy: sum
+		sourceColumn: Inv Value Y&O
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Current
+		dataType: string
+		lineageTag: a61018df-3e3f-4b02-942e-03dd72a6fe3c
+		summarizeBy: none
+		sourceColumn: Current
+
+		annotation SummarizationSetBy = Automatic
+
+	column DDD
+		dataType: int64
+		formatString: 0
+		lineageTag: d7f67b80-39cf-4120-8963-cc2c0f0c0bc8
+		summarizeBy: sum
+		sourceColumn: DDD
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastReleaseDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4fc83539-2fe4-425c-ab85-ff855e17473c
+		summarizeBy: none
+		sourceColumn: LastReleaseDate
+
+		variation Variation
+			isDefault
+			relationship: 0e0160a5-d4dd-4818-8b84-d0634d08356e
+			defaultHierarchy: LocalDateTable_cc60d8d9-5951-4bb0-a6cd-ced08057df5e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastReleaseDateByLot
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 124c3a23-bb38-4dd3-9558-a4664a126c82
+		summarizeBy: none
+		sourceColumn: LastReleaseDateByLot
+
+		variation Variation
+			isDefault
+			relationship: 19fd137b-9fb1-4d85-9601-bc5a8139ee8a
+			defaultHierarchy: LocalDateTable_b100ece8-106f-4c21-8d36-01bd18f063e2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DDD By Lot'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e56f9df-32ed-44b2-8330-61e1c30f821f
+		summarizeBy: sum
+		sourceColumn: DDD By Lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d14a991-0d72-44bb-a746-856a8db6ca89
+		summarizeBy: sum
+		sourceColumn: Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		lineageTag: a4ead933-c687-4b9f-9916-7a6db9e00379
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelOwner
+		dataType: string
+		lineageTag: bccd09e9-5e7f-4e27-9b38-bc679ec0956f
+		summarizeBy: none
+		sourceColumn: ChannelOwner
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionName
+		dataType: string
+		lineageTag: 613a5289-1367-4543-bfc6-5e17e2a58a2a
+		summarizeBy: none
+		sourceColumn: DivisionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionName
+		dataType: string
+		lineageTag: 40cd3f00-1009-4d3c-8f59-39eedc60e264
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesRepName
+		dataType: string
+		lineageTag: 90fa373b-db51-4aef-a303-cf874c88cd7c
+		summarizeBy: none
+		sourceColumn: SalesRepName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BuyingGroup
+		dataType: string
+		lineageTag: e89e29e7-f724-4908-84ef-597ce750b68b
+		summarizeBy: none
+		sourceColumn: BuyingGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Friendly Name'
+		dataType: string
+		lineageTag: 37cb175a-9ef0-4cb7-b36c-146219ab17cb
+		summarizeBy: none
+		sourceColumn: Customer Friendly Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Warehouse ID'
+		dataType: string
+		lineageTag: d18cab89-f318-431c-bb5e-8ae127224113
+		summarizeBy: none
+		sourceColumn: Warehouse ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Friendly Product ID'
+		dataType: string
+		lineageTag: 4fc9b684-0214-4612-8933-b3cc61324270
+		summarizeBy: none
+		sourceColumn: Friendly Product ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Bucket'
+		dataType: string
+		lineageTag: 01ca3c61-7396-4e5c-acec-3670e2430226
+		summarizeBy: none
+		sourceColumn: Age Bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column LotOwner
+		dataType: string
+		lineageTag: 7a247d67-1dcb-4bf9-9148-3357c195c429
+		summarizeBy: none
+		sourceColumn: LotOwner
+
+		annotation SummarizationSetBy = Automatic
+
+	column LotTypeName
+		dataType: string
+		lineageTag: ba9b8afc-b4a7-4638-9256-f17ee03a5143
+		summarizeBy: none
+		sourceColumn: LotTypeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillClass
+		dataType: string
+		lineageTag: f5926761-bd60-4e42-9441-a05a5ccec80e
+		summarizeBy: none
+		sourceColumn: BillClass
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeBucketHistoryIndex =
+			SWITCH(TRUE(),
+			vwFactInventoryHistory[Age Bucket]="<= 6 mo",1,
+			vwFactInventoryHistory[Age Bucket]="6 mo - 1 yr",2,
+			vwFactInventoryHistory[Age Bucket]="1 - 2 yrs",3,
+			vwFactInventoryHistory[Age Bucket]="2 - 9 yrs",4,
+			vwFactInventoryHistory[Age Bucket]="> 9 yrs",5,99)
+		formatString: 0
+		lineageTag: cf166383-d618-4992-bab4-2a0469f7e4ee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Owner =
+			SWITCH(TRUE(),
+			vwFactInventoryHistory[Lot Type]="I","Customer",
+			vwFactInventoryHistory[Lot Type]="L","Customer",
+			vwFactInventoryHistory[Lot Type]="T","Customer",
+			vwFactInventoryHistory[Lot Type]="U","Customer",
+			vwFactInventoryHistory[Lot Type]="Customer Owned","Customer",
+			vwFactInventoryHistory[Lot Type]="CO","Customer",
+			vwFactInventoryHistory[Lot Type]="IS","Customer",
+			vwFactInventoryHistory[Lot Type]="IT","Customer","Taylor")
+		lineageTag: 67f1c7c3-8e9a-4062-af7f-40a42244f343
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeadAlive = IF(vwFactInventoryHistory[DDD By Lot]=1, "DEAD", "ALIVE")
+		lineageTag: 21a08255-4f18-4240-a3f0-472c90636e5d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwFactInventoryHistory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("tycnm7bip1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwFactInventoryHistory = StdOffer{[Schema="dbo",Item="vwFactInventoryHistory"]}[Data]
+				in
+				    dbo_vwFactInventoryHistory
+
+	annotation PBI_ResultType = Table
+

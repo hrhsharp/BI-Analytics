@@ -1,0 +1,38 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["vwFactInventoryHistory","vwDimCustomerServiceAccounts","vwDimCustomersAsIS","vwDimCustomerWaves","vwDimSourceSystems","vwPBI_Datasets","vwRLS_CustomerConstraint","AgeBucketSort","vw_RLSUsers","DimDates","Last Refresh Date"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.141.1558.0 (25.03)+75b5f06a991f8f8a8a4d6b6fcd0f66e1ec2d6fdc
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_322fbd3c-e61e-4cb7-831f-ee3a26974c64
+ref table vwFactInventoryHistory
+ref table LocalDateTable_efe0233f-4f79-4c82-9a29-7f0b34954d59
+ref table LocalDateTable_0388cc51-a2dd-428e-bbfa-7fdaaac9b126
+ref table LocalDateTable_cc60d8d9-5951-4bb0-a6cd-ced08057df5e
+ref table LocalDateTable_b100ece8-106f-4c21-8d36-01bd18f063e2
+ref table vwDimCustomerServiceAccounts
+ref table vwDimCustomersAsIS
+ref table vwDimCustomerWaves
+ref table LocalDateTable_504cc329-79ae-43d1-8e0d-4583adc2b2d9
+ref table vwDimSourceSystems
+ref table vwPBI_Datasets
+ref table LocalDateTable_638ff8d3-fa7a-4c6e-9d40-9f80eba92d88
+ref table vwRLS_CustomerConstraint
+ref table AgeBucketSort
+ref table vw_RLSUsers
+ref table DimDates
+ref table 'Last Refresh Date'
+ref table LocalDateTable_f87607b7-2d93-4e5b-98c0-a5c346ce9568
+
+ref cultureInfo en-US
+

@@ -1,0 +1,92 @@
+table vwDimCustomerWaves
+	lineageTag: 99f0a492-07fb-4c2d-94d5-cf3fa0d78e87
+
+	column pbiJoinCustomers
+		dataType: string
+		lineageTag: c89ea6ce-15f3-4596-bd05-eb2a6f09d025
+		summarizeBy: none
+		sourceColumn: pbiJoinCustomers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Wave Name'
+		dataType: string
+		lineageTag: 3a5b7c12-e398-4c5c-9412-a973e3f6b9e3
+		summarizeBy: none
+		sourceColumn: Wave Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source Customer ID'
+		dataType: string
+		lineageTag: e6284926-e90a-4228-bf0e-5bdd492aa782
+		summarizeBy: none
+		sourceColumn: Source Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Destination Customer ID'
+		dataType: string
+		lineageTag: 349d2bdd-9590-4ef6-af38-f8b7f4020caf
+		summarizeBy: none
+		sourceColumn: Destination Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source SourceName'
+		dataType: string
+		lineageTag: 9f497d99-8560-4123-8a46-9e78952da175
+		summarizeBy: none
+		sourceColumn: Source SourceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Destination SourceName'
+		dataType: string
+		lineageTag: b68d975a-cfc8-4765-bce4-fb345d6b4a20
+		summarizeBy: none
+		sourceColumn: Destination SourceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Wave Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 612a30c9-e5b5-43a1-914c-bb7dc1edc837
+		summarizeBy: none
+		sourceColumn: Wave Date
+
+		variation Variation
+			isDefault
+			relationship: 07a708e1-3ecc-4974-8f73-0e6327763e61
+			defaultHierarchy: LocalDateTable_504cc329-79ae-43d1-8e0d-4583adc2b2d9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source System ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 644bc085-eec8-4b7f-98f9-5371fde3ce1c
+		summarizeBy: count
+		sourceColumn: Source System ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column WaveName_Date = vwDimCustomerWaves[Wave Name] & " [" & vwDimCustomerWaves[Wave Date] & "]"
+		lineageTag: 8fa76249-09f0-4ee1-8686-bfb65fccad4b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwDimCustomerWaves = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("TYCNM7BIP1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwDimCustomerWaves = StdOffer{[Schema="dbo",Item="vwDimCustomerWaves"]}[Data]
+				in
+				    dbo_vwDimCustomerWaves
+
+	annotation PBI_ResultType = Table
+

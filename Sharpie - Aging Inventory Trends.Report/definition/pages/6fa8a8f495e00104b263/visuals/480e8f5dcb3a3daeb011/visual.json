@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "480e8f5dcb3a3daeb011",
+  "position": {
+    "x": 208.88888888888889,
+    "y": 56.666666666666664,
+    "z": 1000,
+    "height": 56.666666666666664,
+    "width": 263.33333333333331,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactInventoryHistory"
+                    }
+                  },
+                  "Property": "DivisionName"
+                }
+              },
+              "queryRef": "vwFactInventoryHistory.DivisionName",
+              "nativeQueryRef": "Area VP",
+              "active": true,
+              "displayName": "Area VP"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactInventoryHistory"
+                    }
+                  },
+                  "Property": "RegionName"
+                }
+              },
+              "queryRef": "vwFactInventoryHistory.RegionName",
+              "nativeQueryRef": "Region VP",
+              "active": false,
+              "displayName": "Region VP"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactInventoryHistory"
+                    }
+                  },
+                  "Property": "SalesRepName"
+                }
+              },
+              "queryRef": "vwFactInventoryHistory.SalesRepName",
+              "nativeQueryRef": "Sales Rep",
+              "active": false,
+              "displayName": "Sales Rep"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Area VP, Regional VP, Sales Rep'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

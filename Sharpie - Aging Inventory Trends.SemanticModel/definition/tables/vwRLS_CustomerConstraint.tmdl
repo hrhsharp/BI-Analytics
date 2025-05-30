@@ -1,0 +1,31 @@
+table vwRLS_CustomerConstraint
+	lineageTag: 962ee707-7361-4052-b73f-11163bf8270e
+
+	column UserId
+		dataType: string
+		lineageTag: e1fb10f3-2b9c-49af-8319-02891de4a48d
+		summarizeBy: none
+		sourceColumn: UserId
+
+		annotation SummarizationSetBy = Automatic
+
+	column pbiJoinCustomers
+		dataType: string
+		lineageTag: c7f7fdae-8404-427d-b676-94d4839652fa
+		summarizeBy: none
+		sourceColumn: pbiJoinCustomers
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwRLS_CustomerConstraint = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("TYCNM7BIP1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwRLS_CustomerConstraint = StdOffer{[Schema="dbo",Item="vwRLS_CustomerConstraint"]}[Data]
+				in
+				    dbo_vwRLS_CustomerConstraint
+
+	annotation PBI_ResultType = Table
+

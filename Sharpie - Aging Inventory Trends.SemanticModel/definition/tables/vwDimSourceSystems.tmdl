@@ -1,0 +1,75 @@
+table vwDimSourceSystems
+	lineageTag: dcba0573-f1e2-4d76-bdf6-44ce982945c3
+
+	column 'Source System ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 70ebbeca-c426-4f97-b26d-d937f5f785ab
+		summarizeBy: none
+		sourceColumn: Source System ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source System Name'
+		dataType: string
+		lineageTag: 83b9be81-768a-4c59-a79e-6bd86fa2af57
+		summarizeBy: none
+		sourceColumn: Source System Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company ID'
+		dataType: string
+		lineageTag: 6210209c-0700-453e-b862-9bdc4b13cb4d
+		summarizeBy: none
+		sourceColumn: Company ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Name'
+		dataType: string
+		lineageTag: e9726edf-705a-45a2-88f9-d51533eb716f
+		summarizeBy: none
+		sourceColumn: Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsProcessReady
+		dataType: int64
+		formatString: 0
+		lineageTag: 3008f654-7a36-4232-94e4-f25d82a2fab3
+		summarizeBy: none
+		sourceColumn: IsProcessReady
+
+		annotation SummarizationSetBy = Automatic
+
+	column Processdate
+		dataType: int64
+		formatString: 0
+		lineageTag: f9c08cf7-46e4-40f7-8049-78a79fb9afa7
+		summarizeBy: none
+		sourceColumn: Processdate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCustomerFacing
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ef1da145-d630-43e9-b368-2e98cfbbaf73
+		summarizeBy: none
+		sourceColumn: IsCustomerFacing
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwDimSourceSystems = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("TYCNM7BIP1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwDimSourceSystems = StdOffer{[Schema="dbo",Item="vwDimSourceSystems"]}[Data]
+				in
+				    dbo_vwDimSourceSystems
+
+	annotation PBI_ResultType = Table
+

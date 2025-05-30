@@ -1,0 +1,349 @@
+table vwDimCustomersAsIS
+	lineageTag: 26ba796b-89d1-4019-bc5d-b1d206f5f9a8
+
+	column 'Customer SID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ae99c92-c370-4b9a-b9be-cec358fbfd75
+		summarizeBy: count
+		sourceColumn: Customer SID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Oracle Customer ID'
+		dataType: string
+		lineageTag: 46a754c3-0ce6-4565-85e4-49698d44d15e
+		summarizeBy: none
+		sourceColumn: Oracle Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Salesforce ID'
+		dataType: string
+		lineageTag: 48fbe9b7-697f-4f10-9b0b-2abb6ef067a9
+		summarizeBy: none
+		sourceColumn: Salesforce ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer ID'
+		dataType: string
+		lineageTag: c8e658e5-cafd-4f28-b7bd-20b3bb1496c0
+		summarizeBy: none
+		sourceColumn: Parent Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer SID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 124b78d4-c385-43ef-a630-7b66eb9ed393
+		summarizeBy: count
+		sourceColumn: Parent Customer SID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source System ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dff41a7-55e5-4ef3-a016-1b5fd9634f65
+		summarizeBy: none
+		sourceColumn: Source System ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 7816ca85-89ee-4992-9ff4-a8cd5032ab76
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: d244aeec-4098-4d75-86ea-3591bd0f29e7
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Friendly Name'
+		dataType: string
+		lineageTag: 45bddafb-87ff-44d7-a618-b94a203bfbd9
+		summarizeBy: none
+		sourceColumn: Customer Friendly Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column pbiJoinCustomers
+		dataType: string
+		lineageTag: dc6a9cdd-3a5a-430b-969f-0ff2483e50f8
+		summarizeBy: none
+		sourceColumn: pbiJoinCustomers
+
+		annotation SummarizationSetBy = Automatic
+
+	column pbiJoinParent
+		dataType: string
+		lineageTag: e7c5d0c3-cc8b-4e01-aea8-9a75f61f193c
+		summarizeBy: none
+		sourceColumn: pbiJoinParent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Reporting_Name
+		dataType: string
+		lineageTag: efa7db88-7a9a-4c13-aab0-65c00f6215e0
+		summarizeBy: none
+		sourceColumn: Customer_Reporting_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrgKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 346f65e5-417e-439a-9db1-dcb285ad0e80
+		summarizeBy: count
+		sourceColumn: SalesOrgKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Business_Unit_Code
+		dataType: string
+		lineageTag: 199e5573-7993-42b4-bb07-10583162372b
+		summarizeBy: none
+		sourceColumn: Business_Unit_Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyCode
+		dataType: string
+		lineageTag: 7e07e4ca-7327-4fa0-a4f0-fada80887514
+		summarizeBy: none
+		sourceColumn: CompanyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 379d8baa-a876-4230-af1b-ae48f0ad1d93
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionTypeCode
+		dataType: string
+		lineageTag: 8db43f8b-21d8-4a3d-98f8-b2fcc0fa5c3c
+		summarizeBy: none
+		sourceColumn: DivisionTypeCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionCode
+		dataType: string
+		lineageTag: eb929d16-2075-411b-9a30-86969eefecab
+		summarizeBy: none
+		sourceColumn: DivisionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionName
+		dataType: string
+		lineageTag: e1ccf029-1c5e-4e50-bed9-69e758fda02f
+		summarizeBy: none
+		sourceColumn: DivisionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionCode
+		dataType: string
+		lineageTag: 4ca5d509-875f-4b0c-b4a6-ef17e0b98c6a
+		summarizeBy: none
+		sourceColumn: RegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionName
+		dataType: string
+		lineageTag: 01763834-d296-48ae-acdd-44869aeae2e8
+		summarizeBy: none
+		sourceColumn: RegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOfficeCode
+		dataType: string
+		lineageTag: fd8f4434-b6e8-41f3-ae71-e1560a98c936
+		summarizeBy: none
+		sourceColumn: SalesOfficeCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOfficeName
+		dataType: string
+		lineageTag: 9d08b25b-5939-4d34-bf31-32a942a72323
+		summarizeBy: none
+		sourceColumn: SalesOfficeName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesRepName
+		dataType: string
+		lineageTag: d6046ae4-1af6-4241-9423-820d0bf23bf5
+		summarizeBy: none
+		sourceColumn: SalesRepName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BuyingGroup
+		dataType: string
+		lineageTag: ce470dcd-2cf9-4abe-9165-a494fa01ec87
+		summarizeBy: none
+		sourceColumn: BuyingGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerNumber
+		dataType: string
+		lineageTag: eb2b144b-fa10-4e9c-824e-00f94939bfb1
+		summarizeBy: none
+		sourceColumn: CustomerNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: db02e1fe-43e1-4792-9674-554aa870b578
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerticalMarket
+		dataType: string
+		lineageTag: 849027b6-ee19-4f33-a86a-68f899fad903
+		summarizeBy: none
+		sourceColumn: VerticalMarket
+
+		annotation SummarizationSetBy = Automatic
+
+	column BuyingGroupKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d49492a-5541-431c-8cfc-2ce8351eb728
+		summarizeBy: count
+		sourceColumn: BuyingGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionTypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cbe4fd42-57cd-475b-8559-afc0c1c90f6a
+		summarizeBy: count
+		sourceColumn: DivisionTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c5250bfc-8c94-4aaa-8629-9ea3a32d5e4b
+		summarizeBy: count
+		sourceColumn: DivisionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 66c5027e-6a2b-4045-9037-d14feef477b0
+		summarizeBy: count
+		sourceColumn: RegionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOfficeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3eee46ff-2f64-43f7-a342-8ffbbf470e45
+		summarizeBy: count
+		sourceColumn: SalesOfficeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerNumberKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f5f0da7-6180-4bba-8176-4979036e7986
+		summarizeBy: count
+		sourceColumn: CustomerNumberKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesRepsKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 44b1cca1-21ef-4714-9d88-e5e32710f907
+		summarizeBy: count
+		sourceColumn: SalesRepsKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesRepPrimary
+		dataType: string
+		lineageTag: 97ca893e-0656-472f-89b6-ab37f1f64319
+		summarizeBy: none
+		sourceColumn: SalesRepPrimary
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesRepSplitPercent
+		dataType: double
+		lineageTag: db1be4b5-809b-4b30-b53c-ad6753ec1aab
+		summarizeBy: sum
+		sourceColumn: SalesRepSplitPercent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesRepID_Synygy
+		dataType: int64
+		formatString: 0
+		lineageTag: dc160b84-a0a4-4936-bfb9-5e08257cb516
+		summarizeBy: sum
+		sourceColumn: SalesRepID_Synygy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Friendly Name'
+		dataType: string
+		lineageTag: 05e5f506-5e6e-4f17-8e22-91ec5efa3ceb
+		summarizeBy: none
+		sourceColumn: Parent Customer Friendly Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parent Customer Name'
+		dataType: string
+		lineageTag: 777a3c88-0332-4fb7-a5cc-7e78aab0b399
+		summarizeBy: none
+		sourceColumn: Parent Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwDimCustomersAsIS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("TYCNM7BIP1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwDimCustomersAsIS = StdOffer{[Schema="dbo",Item="vwDimCustomersAsIS"]}[Data]
+				in
+				    dbo_vwDimCustomersAsIS
+
+	annotation PBI_ResultType = Table
+

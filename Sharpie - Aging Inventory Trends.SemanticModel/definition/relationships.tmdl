@@ -1,0 +1,70 @@
+relationship 3bd4c442-d6d5-41b0-a9b5-313e22cfa628
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwFactInventoryHistory.'Product Order Date'
+	toColumn: LocalDateTable_efe0233f-4f79-4c82-9a29-7f0b34954d59.Date
+
+relationship 667a6a3d-478e-431c-b03c-ce905181cc91
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwFactInventoryHistory.'Stored Date'
+	toColumn: LocalDateTable_0388cc51-a2dd-428e-bbfa-7fdaaac9b126.Date
+
+relationship 0e0160a5-d4dd-4818-8b84-d0634d08356e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwFactInventoryHistory.LastReleaseDate
+	toColumn: LocalDateTable_cc60d8d9-5951-4bb0-a6cd-ced08057df5e.Date
+
+relationship 19fd137b-9fb1-4d85-9601-bc5a8139ee8a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwFactInventoryHistory.LastReleaseDateByLot
+	toColumn: LocalDateTable_b100ece8-106f-4c21-8d36-01bd18f063e2.Date
+
+relationship 07a708e1-3ecc-4974-8f73-0e6327763e61
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwDimCustomerWaves.'Wave Date'
+	toColumn: LocalDateTable_504cc329-79ae-43d1-8e0d-4583adc2b2d9.Date
+
+relationship ce4939e1-fb1f-406c-999b-dca9e9d05607
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vwPBI_Datasets.Refreshtime
+	toColumn: LocalDateTable_638ff8d3-fa7a-4c6e-9d40-9f80eba92d88.Date
+
+relationship eb1e2460-0b46-26f7-689f-cf05b31b40b7
+	crossFilteringBehavior: bothDirections
+	fromColumn: vwFactInventoryHistory.pbiJoinCustomers
+	toColumn: vwDimCustomerWaves.pbiJoinCustomers
+
+relationship 59065bec-c175-9daf-3f17-8c4768796891
+	crossFilteringBehavior: bothDirections
+	fromColumn: vwRLS_CustomerConstraint.pbiJoinCustomers
+	toColumn: vwDimCustomersAsIS.pbiJoinCustomers
+
+relationship c35cb49a-c64c-341d-1ef1-8de8dd3592c4
+	fromColumn: vwDimCustomersAsIS.'Source System ID'
+	toColumn: vwDimSourceSystems.'Source System ID'
+
+relationship 66ad4fcb-b96b-02e1-cec5-53cd7efe3330
+	crossFilteringBehavior: bothDirections
+	fromColumn: vwFactInventoryHistory.pbiJoinCustomers
+	toColumn: vwDimCustomerServiceAccounts.pbiJoinCustomers
+
+relationship AutoDetected_ee41ec20-6298-4493-b191-edf409958b96
+	fromColumn: vwRLS_CustomerConstraint.UserId
+	toColumn: vw_RLSUsers.UserID
+
+relationship da169e97-2dd2-907d-7ad0-7721c6bc001c
+	fromColumn: vwFactInventoryHistory.'Age Bucket'
+	toColumn: AgeBucketSort.AgeBucket
+
+relationship 621ff10b-e44e-eae8-6e05-2de6d416768f
+	fromColumn: vwFactInventoryHistory.'Snap Shot Date'
+	toColumn: DimDates.Date
+
+relationship c4f3c5d4-6235-5dad-b195-67eb16972685
+	fromColumn: vwFactInventoryHistory.pbiJoinCustomers
+	toColumn: vwDimCustomersAsIS.pbiJoinCustomers
+
+relationship ddc98f6b-68db-499d-aa0a-d1f8dfb4a7f2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Last Refresh Date'.LastRefreshDate
+	toColumn: LocalDateTable_f87607b7-2d93-4e5b-98c0-a5c346ce9568.Date
+

@@ -1,0 +1,112 @@
+table vwPBI_Datasets
+	lineageTag: fc26917f-a8c7-4a0a-82b5-513724736271
+
+	column Workspace
+		dataType: string
+		lineageTag: 7d330877-51e6-469d-97f4-68ae11f99d22
+		summarizeBy: none
+		sourceColumn: Workspace
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dataset
+		dataType: string
+		lineageTag: 151c9b9f-4ce2-4ecc-b97a-7658ecde00f8
+		summarizeBy: none
+		sourceColumn: Dataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group_ID
+		dataType: string
+		lineageTag: 4edffa03-ef80-4401-93ba-63c1b243a0e3
+		summarizeBy: none
+		sourceColumn: Group_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dataset_ID
+		dataType: string
+		lineageTag: 5f6cd05c-920e-4183-b31a-342f128621d7
+		summarizeBy: none
+		sourceColumn: Dataset_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Server_ID
+		dataType: string
+		lineageTag: f7f51469-2ede-4042-a0eb-f6f48427ad90
+		summarizeBy: none
+		sourceColumn: Server_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Delay
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b6b41dd-b0a5-4134-8d7b-1c054a8dea77
+		summarizeBy: sum
+		sourceColumn: Delay
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: dfb4996a-fbc7-4e5e-b594-91b6e4fc10ef
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Refresh
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ab1e255a-ea3f-4a75-aa48-bb942187c956
+		summarizeBy: none
+		sourceColumn: Refresh
+
+		annotation SummarizationSetBy = Automatic
+
+	column Refreshtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2a8d2457-5872-4806-b259-4e40af59367c
+		summarizeBy: none
+		sourceColumn: Refreshtime
+
+		variation Variation
+			isDefault
+			relationship: ce4939e1-fb1f-406c-999b-dca9e9d05607
+			defaultHierarchy: LocalDateTable_638ff8d3-fa7a-4c6e-9d40-9f80eba92d88.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 25b0ff8f-7dd2-4903-9d8f-2a5aa25628ed
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorMessage
+		dataType: string
+		lineageTag: d3003f25-74d4-4177-9f86-45ddba8f8609
+		summarizeBy: none
+		sourceColumn: ErrorMessage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwPBI_Datasets = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("TYCNM7BIP1.corp.tcc.inet"),
+				    StdOffer = Source{[Name="StdOffer"]}[Data],
+				    dbo_vwPBI_Datasets = StdOffer{[Schema="dbo",Item="vwPBI_Datasets"]}[Data]
+				in
+				    dbo_vwPBI_Datasets
+
+	annotation PBI_ResultType = Table
+
