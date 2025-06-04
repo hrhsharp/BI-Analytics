@@ -1,0 +1,243 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 3775.7575757575755,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 3935.638257575758,
+            "y": 953.87689393939388
+          },
+          "nodeIndex": "Users",
+          "nodeLineageTag": "dd15871c-60f7-431b-8a8c-830e608bd6eb",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 3420.4871212121211,
+            "y": 272.15909090909082
+          },
+          "nodeIndex": "vwCustomers",
+          "nodeLineageTag": "e245f196-dd2a-4760-a519-e971c127e13e",
+          "size": {
+            "height": 152,
+            "width": 227.75
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 3828.7151444368883,
+            "y": 635.11571997136718
+          },
+          "nodeIndex": "vwRLS_CustomerConstraint",
+          "nodeLineageTag": "b7d5fca4-192d-49e8-953d-23256d8a0ad2",
+          "size": {
+            "height": 207.45075757575762,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 4417.1875,
+            "y": 548.4375
+          },
+          "nodeIndex": "Channels",
+          "nodeLineageTag": "5888d1d5-82dc-43d8-97cd-c63ad551538e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 4292.675,
+            "y": 0
+          },
+          "nodeIndex": "vwFactSalesDashboardRev",
+          "nodeLineageTag": "167a84e7-358e-40d5-b216-384e6a3768ba",
+          "size": {
+            "height": 300,
+            "width": 322.25431132307313
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 3428.125,
+            "y": 458.71875
+          },
+          "nodeIndex": "vwdimCompany",
+          "nodeLineageTag": "77c48b33-3ed8-42ea-8e7c-6e609a6a58be",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 4637.125,
+            "y": 359.21875
+          },
+          "nodeIndex": "vwdimItem",
+          "nodeLineageTag": "c2c2bf3e-4330-4788-82af-c3de5d7fbfaa",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 3834.6000000000004,
+            "y": 0
+          },
+          "nodeIndex": "vwdimPlant",
+          "nodeLineageTag": "8bacbaa9-e531-431f-b95b-f699b4bd9d41",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 5018.975,
+            "y": 6.25
+          },
+          "nodeIndex": "vwdimProductSolution",
+          "nodeLineageTag": "585ba2a8-5eeb-47d3-bd86-4c9f715cf049",
+          "size": {
+            "height": 244.74866489620615,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 3792.3651515151519,
+            "y": 194.28314393939394
+          },
+          "nodeIndex": "vwdimSalesOrg",
+          "nodeLineageTag": "929fb46e-eba1-47f2-83b2-309ea25dc73d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 4216.75,
+            "y": 341.53125
+          },
+          "nodeIndex": "vwdimWarehouse",
+          "nodeLineageTag": "1831083d-fc68-435b-8691-f5fe6056d434",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 5023,
+            "y": 429.40625
+          },
+          "nodeIndex": "vwdimProduct_Types",
+          "nodeLineageTag": "b224bdd6-1722-43b5-a313-35ccce06a79d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 5364.1581390380861,
+            "y": 11.71875
+          },
+          "nodeIndex": "vwFactSolutionPlan",
+          "nodeLineageTag": "c7167754-9c27-454d-b1b4-f65f49ea50bd",
+          "size": {
+            "height": 318.08675458721063,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 4737.4661938678119,
+            "y": 671.47973684204237
+          },
+          "nodeIndex": "vw_Calendar",
+          "nodeLineageTag": "d76ff648-9257-4060-aa5e-9b6ac7b8ba5d",
+          "size": {
+            "height": 429.6875,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 4140.6507504974943,
+            "y": 549.06846690586963
+          },
+          "nodeIndex": "Owners",
+          "nodeLineageTag": "e781e15d-a53a-49c0-8c29-2bc6eba1fff6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2227.671017825965,
+            "y": 498.58361842102113
+          },
+          "nodeIndex": "LastRefreshDate",
+          "nodeLineageTag": "66c9031c-2797-4971-be9d-21d5bee905f2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3420.4871212121211,
+            "y": 498.58361842102113
+          },
+          "nodeIndex": "Query1",
+          "nodeLineageTag": "f19f18cf-77f2-4c53-a3cf-05cf4316d9aa",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 66,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

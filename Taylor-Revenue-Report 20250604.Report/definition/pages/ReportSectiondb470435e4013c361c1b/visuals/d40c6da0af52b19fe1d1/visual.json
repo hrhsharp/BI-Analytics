@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "d40c6da0af52b19fe1d1",
+  "position": {
+    "x": 659.14960629921256,
+    "y": 63.496062992125985,
+    "z": 15000,
+    "height": 65.511811023622045,
+    "width": 220.7244094488189,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimSalesOrg"
+                    }
+                  },
+                  "Property": "SL_Account_Name"
+                }
+              },
+              "queryRef": "vwdimSalesOrg.SL_Account_Name",
+              "nativeQueryRef": "BICP Customer Channel",
+              "active": true,
+              "displayName": "BICP Customer Channel"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "SL_Account_Name",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

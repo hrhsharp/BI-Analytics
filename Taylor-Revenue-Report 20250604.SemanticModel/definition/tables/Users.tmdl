@@ -1,0 +1,25 @@
+table Users
+	lineageTag: dd15871c-60f7-431b-8a8c-830e608bd6eb
+
+	column UserID
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(1000)
+		lineageTag: ebb4f068-d309-41a1-82b8-a1a6bfc7e3d6
+		summarizeBy: none
+		sourceColumn: UserID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Users-6cd16f9c-99e5-47f6-9277-bad3a9b6e16f = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("TYCNM7BIP1.CORP.TCC.INET", "EnterpriseData", [Query="SELECT DISTINCT UserID from vwRLS_CustomerConstraint", CreateNavigationProperties=false])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

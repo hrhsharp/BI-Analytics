@@ -1,0 +1,7 @@
+role GenericCustomerRole
+	modelPermission: read
+
+	tablePermission Users = [UserID] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = b301c08002eb4b67a0aa4b8dd54e6a54
+

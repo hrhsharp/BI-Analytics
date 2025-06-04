@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "99169bc2b1775921fd5a",
+  "position": {
+    "x": 884.91338582677167,
+    "y": 0,
+    "z": 17000,
+    "height": 65.511811023622045,
+    "width": 153.1968503937008,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Profit_Center"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Profit_Center",
+              "nativeQueryRef": "Profit Center",
+              "active": true,
+              "displayName": "Profit Center"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

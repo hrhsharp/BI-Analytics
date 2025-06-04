@@ -1,0 +1,17 @@
+table Channels
+	lineageTag: 5888d1d5-82dc-43d8-97cd-c63ad551538e
+
+	column ReportingChannel
+		lineageTag: 41e4884d-db56-4851-be6b-22f8cf772006
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: vwFactSalesDashboardRev[ReportingChannel]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Channels-f00f1a67-7ab0-4aa8-97b2-ec39f3d83db5 = calculated
+		mode: import
+		source = DISTINCT(vwFactSalesDashboardRev[ReportingChannel])
+
+	annotation PBI_Id = 885457fb7aa049dda27fa8535c6a9e32
+
