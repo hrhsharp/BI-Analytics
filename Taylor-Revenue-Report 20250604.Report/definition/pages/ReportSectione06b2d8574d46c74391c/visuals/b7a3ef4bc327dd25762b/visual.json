@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "b7a3ef4bc327dd25762b",
+  "position": {
+    "x": 0,
+    "y": 142.55451713395638,
+    "z": 4000,
+    "height": 240.24922118380061,
+    "width": 313.02180685358252,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Last Year Rev_KPI"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Last Year Rev_KPI",
+              "nativeQueryRef": "Last Year Rev_KPI",
+              "displayName": "Prior Period Revenue"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Current Year Rev"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Current Year Rev",
+              "nativeQueryRef": "Current Period Revenue",
+              "displayName": "Current Period Revenue"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vwFactSalesDashboardRev"
+                  }
+                },
+                "Property": "Current Year Rev"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "calloutValue": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Arial'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current - Prior Period Revenue'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

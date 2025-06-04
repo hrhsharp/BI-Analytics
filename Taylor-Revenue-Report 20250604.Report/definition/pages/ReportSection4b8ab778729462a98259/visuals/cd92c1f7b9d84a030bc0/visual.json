@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "cd92c1f7b9d84a030bc0",
+  "position": {
+    "x": 182.42519685039369,
+    "y": 50.393700787401578,
+    "z": 5000,
+    "height": 73.5748031496063,
+    "width": 218.70866141732284,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "BUGroupPresident"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.BUGroupPresident",
+              "nativeQueryRef": "Owner",
+              "active": true,
+              "displayName": "Owner"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Crump",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

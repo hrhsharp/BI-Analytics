@@ -1,0 +1,305 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "51413c570c65c066ce5a",
+  "position": {
+    "x": 0,
+    "y": 458.50746268656718,
+    "z": 0,
+    "height": 261.49253731343282,
+    "width": 1278.8059701492537,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimSalesOrg"
+                    }
+                  },
+                  "Property": "RegionName"
+                }
+              },
+              "queryRef": "vwdimSalesOrg.RegionName",
+              "nativeQueryRef": "Region",
+              "displayName": "Region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimSalesOrg"
+                    }
+                  },
+                  "Property": "SalesRepName"
+                }
+              },
+              "queryRef": "vwdimSalesOrg.SalesRepName",
+              "nativeQueryRef": "Sales Rep",
+              "displayName": "Sales Rep"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimProduct_Types"
+                    }
+                  },
+                  "Property": "Product Type"
+                }
+              },
+              "queryRef": "vwdimProduct_Types.Product Type",
+              "nativeQueryRef": "Product Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimSalesOrg"
+                    }
+                  },
+                  "Property": "Customer"
+                }
+              },
+              "queryRef": "vwdimSalesOrg.Customer",
+              "nativeQueryRef": "Customer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Current Year Rev"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Current Year Rev",
+              "displayName": "Current Period Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Last Year Rev"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Last Year Rev",
+              "displayName": "Prior Period Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "CY - PY Difference"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.CY - PY Difference"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vwFactSalesDashboardRev"
+                  }
+                },
+                "Property": "CY - PY Difference"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139.37272481532654D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwFactSalesDashboardQ.CY - PY Difference"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.94025397462312D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwFactSalesDashboardQ.Last Year Rev"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.50747919445135D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwFactSalesDashboardQ.CY-Rev"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "223.74100292337337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwdimSalesOrg.RegionName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "278.6917877137891D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwdimProduct_Types.Product Type"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.93691976643373D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwFactSalesDashboardRev.Current Year Rev"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.25165268184136D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vwFactSalesDashboardRev.Last Year Rev"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter2c91d4edccdd4115c46c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Channels"
+              }
+            },
+            "Property": "ReportingChannel"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filter2aea321f8d30236adaa8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "vwdimSalesOrg"
+              }
+            },
+            "Property": "RegionName"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

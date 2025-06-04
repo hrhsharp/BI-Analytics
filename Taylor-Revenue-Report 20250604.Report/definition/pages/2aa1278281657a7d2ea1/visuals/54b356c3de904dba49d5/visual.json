@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "54b356c3de904dba49d5",
+  "position": {
+    "x": 0,
+    "y": 94.740157480314963,
+    "z": 19000,
+    "height": 31.244094488188978,
+    "width": 141.10236220472441,
+    "tabOrder": 19000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "LastRefreshDate"
+                        }
+                      },
+                      "Property": "Last Refresh Date"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(LastRefreshDate.Last Refresh Date)",
+              "nativeQueryRef": "Earliest Last Refresh Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "LastRefreshDate"
+                      }
+                    },
+                    "Property": "Last Refresh Date"
+                  }
+                },
+                "Function": 3
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

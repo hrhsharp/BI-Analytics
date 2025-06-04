@@ -1,0 +1,31 @@
+table vwCustomers
+	lineageTag: e245f196-dd2a-4760-a519-e971c127e13e
+
+	column OrigValue
+		dataType: string
+		lineageTag: 43cb0835-34b3-472a-98f7-6c8fe60dfae3
+		summarizeBy: none
+		sourceColumn: OrigValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		lineageTag: 2e12955a-db56-40bb-b9a8-ec66f4b76837
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwCustomers-44d7073c-7b81-40a4-b15a-e0c17f3b3390 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("TYCNM7BIP1.CORP.TCC.INET", "EnterpriseData", [Query="SELECT  SLVALUE as OrigValue,CustomerNumber as CustomerID from vwRLS_CustomerConstraint_COM", CreateNavigationProperties=false]),
+				    #"Changed Type1" = Table.TransformColumnTypes(Source,{{"CustomerID", type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed Type1", {"OrigValue"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+

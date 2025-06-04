@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "0339b08ed7a1778bbd6b",
+  "position": {
+    "x": 1088.5039370078741,
+    "y": 50.393700787401578,
+    "z": 15000,
+    "height": 56.440944881889763,
+    "width": 191.49606299212599,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimSalesOrg"
+                    }
+                  },
+                  "Property": "LocationName"
+                }
+              },
+              "queryRef": "vwdimSalesOrg.LocationName",
+              "nativeQueryRef": "Location Name/Source",
+              "active": true,
+              "displayName": "Location Name/Source"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

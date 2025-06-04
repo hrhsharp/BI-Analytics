@@ -1,0 +1,80 @@
+table vwFactSolutionPlan
+	lineageTag: c7167754-9c27-454d-b1b4-f65f49ea50bd
+
+	measure 'CY-Rev minus Solution Budget_V' = COALESCE([Current Year Rev] - [Solution Budget_V],BLANK())
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0af97c00-bdfb-4b2f-8aad-f8c84b622ead
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Solution Budget_V' = COALESCE(sum(vwfactSolutionPlan[SolutionPlanAmount]),BLANK())
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0fe06c11-1d73-4f87-a01e-92446c46fd24
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Solutiopn Plan Amount % difference from CY-Rev_V' = ```
+			
+			    DIVIDE ([Current Year Rev] - [Solution Budget_V], [Solution Budget_V])
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 61fb0f7f-0f00-48a5-9732-865ee50ee6be
+
+	column SalesOrgKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d0dfc045-a96a-4fd9-8165-d406c2022e69
+		summarizeBy: none
+		sourceColumn: SalesOrgKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Calendar_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 649f5f00-e772-4264-a1a1-2e04ad6ef9c5
+		summarizeBy: none
+		sourceColumn: Calendar_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSolutionKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 28ee9a37-2e31-4516-a962-5ded1d555403
+		summarizeBy: none
+		sourceColumn: ProductSolutionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 06d0c54e-ff7e-49ce-82c2-f4dae49cc635
+		summarizeBy: count
+		sourceColumn: SalesTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SolutionPlanAmount
+		dataType: decimal
+		formatString: "₹"\ #,0.###############;#,0.###############\ -"₹";"₹"\ #,0.###############
+		lineageTag: 0d5ba4f6-6123-49eb-9502-200db87b5979
+		summarizeBy: sum
+		sourceColumn: SolutionPlanAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-IN"}
+
+	partition vwFactSolutionPlan = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("TYCNM7BIP1.CORP.TCC.INET", "EnterpriseData", [CreateNavigationProperties=false]),
+				    dbo_vwFactSolutionPlan = Source{[Schema="dbo",Item="vwFactSolutionPlan"]}[Data]
+				in
+				    dbo_vwFactSolutionPlan
+
+	annotation PBI_ResultType = Table
+

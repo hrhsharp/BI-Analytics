@@ -1,0 +1,53 @@
+table vwdimItem
+	lineageTag: c2c2bf3e-4330-4788-82af-c3de5d7fbfaa
+
+	column ItemDescription
+		dataType: string
+		lineageTag: 7b0459bb-a427-4d20-894b-4df4d5446f32
+		summarizeBy: none
+		sourceColumn: ItemDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f69d3fd-60c9-4e40-9296-ad147813586a
+		summarizeBy: none
+		sourceColumn: ItemKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNumber
+		dataType: string
+		lineageTag: d6d9555d-a3b8-4c4d-a2b1-b6873e8ba310
+		summarizeBy: none
+		sourceColumn: ItemNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNoDesc
+		dataType: string
+		lineageTag: 950b9e62-1040-4f17-9a82-3427b99e2deb
+		summarizeBy: none
+		sourceColumn: ItemNoDesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item = vwdimItem[ItemDescription] &" ["&vwdimItem[ItemNumber] & "]"
+		lineageTag: a86b60e7-d0bc-4f9b-b2ee-33ec4a70a2c4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vwdimItem = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("tycnm7bip1.corp.tcc.inet", "EnterpriseData", [CreateNavigationProperties=false]),
+				    dbo_vwdimItem = Source{[Schema="dbo",Item="vwdimItem"]}[Data]
+				in
+				    dbo_vwdimItem
+
+	annotation PBI_ResultType = Table
+

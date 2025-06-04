@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "b1d265845c0a1a8ea03a",
+  "position": {
+    "x": 936.71641791044772,
+    "y": 131.64179104477611,
+    "z": 14000,
+    "height": 246.26865671641789,
+    "width": 342.08955223880594,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "ReportingChannel"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.ReportingChannel",
+              "nativeQueryRef": "ReportingChannel",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwFactSalesDashboardRev"
+                    }
+                  },
+                  "Property": "Current Year Rev"
+                }
+              },
+              "queryRef": "vwFactSalesDashboardRev.Current Year Rev",
+              "nativeQueryRef": "Current Period Revenue",
+              "displayName": "Current Period Revenue"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vwFactSalesDashboardRev"
+                  }
+                },
+                "Property": "Current Year Rev"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Both'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current Period Revenue by Reporting Channel'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
