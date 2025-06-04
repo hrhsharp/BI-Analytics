@@ -502,7 +502,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Invoice No": {
+			          "Invoice Number": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -512,7 +512,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Invoice Number": {
+			          "Invoice No": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

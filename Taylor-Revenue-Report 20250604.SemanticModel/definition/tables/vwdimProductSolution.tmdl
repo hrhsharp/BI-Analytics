@@ -43,6 +43,40 @@ table vwdimProductSolution
 
 		annotation SummarizationSetBy = Automatic
 
+	column CompanyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b9c89fec-46e3-41fb-b2fe-0ee83d4f54f7
+		summarizeBy: count
+		sourceColumn: CompanyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelOwner
+		dataType: string
+		lineageTag: 4abd7cb7-a07d-413d-998a-c537a5ab96c3
+		summarizeBy: none
+		sourceColumn: ChannelOwner
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfitCenterNum
+		dataType: int64
+		formatString: 0
+		lineageTag: c7665eda-28d3-4b32-842d-a537f86872f6
+		summarizeBy: sum
+		sourceColumn: ProfitCenterNum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfitCenterName
+		dataType: string
+		lineageTag: 3bf54cb7-700e-4018-9687-1bf9e4677c1e
+		summarizeBy: none
+		sourceColumn: ProfitCenterName
+
+		annotation SummarizationSetBy = Automatic
+
 	partition vwdimProductSolution = m
 		mode: import
 		source =
