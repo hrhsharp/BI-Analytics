@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
   "name": "20e9f4f740cb4c44ae1e",
   "position": {
     "x": 0,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Year over Year Comparisons",
+                    "value": "Year over Year Comparison",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "16pt"
