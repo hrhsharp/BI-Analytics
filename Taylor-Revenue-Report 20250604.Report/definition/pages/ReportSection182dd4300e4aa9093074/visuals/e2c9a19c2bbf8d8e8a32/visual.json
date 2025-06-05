@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "e2c9a19c2bbf8d8e8a32",
+  "position": {
+    "x": 676.11940298507466,
+    "y": 498.80597014925371,
+    "z": 6000,
+    "height": 221.19402985074626,
+    "width": 603.58208955223881,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimCompany"
+                    }
+                  },
+                  "Property": "LegacySource"
+                }
+              },
+              "queryRef": "vwdimCompany.LegacySource",
+              "nativeQueryRef": "LegacySource"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimCompany"
+                    }
+                  },
+                  "Property": "CompanyName"
+                }
+              },
+              "queryRef": "vwdimCompany.CompanyName",
+              "nativeQueryRef": "Company Name",
+              "displayName": "Company Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vwdimCompany"
+                    }
+                  },
+                  "Property": "SourceSystemDescription"
+                }
+              },
+              "queryRef": "vwdimCompany.SourceSystemDescription",
+              "nativeQueryRef": "Source System Description",
+              "displayName": "Source System Description"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vwdimCompany"
+                  }
+                },
+                "Property": "CompanyName"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Taylor-Revenue-Report 20250604"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "55b1b536-b993-4423-827a-fd763306814c"
+  }
+}

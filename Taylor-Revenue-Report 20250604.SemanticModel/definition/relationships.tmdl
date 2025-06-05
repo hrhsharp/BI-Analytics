@@ -1,0 +1,90 @@
+relationship 567130a0-7cd1-4dd8-b66b-556aa2e17f82
+	fromColumn: vwRLS_CustomerConstraint.UserID
+	toColumn: Users.UserID
+
+relationship e4288959-9ac4-4bbc-b792-d1db375044fd
+	fromColumn: vwFactSalesDashboardRev.ReportingChannel
+	toColumn: Channels.ReportingChannel
+
+relationship b53ac85d-9b7a-4f1e-87b1-a188070903bc
+	fromColumn: vwFactSalesDashboardRev.ItemKey
+	toColumn: vwdimItem.ItemKey
+
+relationship f1cbbc77-ed33-45a8-af95-d8828da49411
+	crossFilteringBehavior: bothDirections
+	fromColumn: vwFactSalesDashboardRev.PlantKey
+	toColumn: vwdimPlant.PlantKey
+
+relationship 2e557d77-aa34-4b6a-b147-54784c997048
+	crossFilteringBehavior: bothDirections
+	fromColumn: vwdimProductSolution.ReportingChannel
+	toColumn: Channels.ReportingChannel
+
+relationship 2bcea465-00a9-48c4-84fc-5e51537323a3
+	fromColumn: vwFactSalesDashboardRev.SalesOrgKey
+	toColumn: vwdimSalesOrg.SalesOrgKey
+
+relationship d221fb57-9f70-4eff-b843-164534fbc87c
+	fromColumn: vwFactSalesDashboardRev.WarehouseKey
+	toColumn: vwdimWarehouse.Warehouse_Key
+
+relationship 17c5c0b8-07e1-421e-90d6-432427024827
+	toCardinality: many
+	fromColumn: vwdimProductSolution.ProductSolution
+	toColumn: vwdimProduct_Types.Solution
+
+relationship dd4e8c23-c166-48cb-ad8a-a8accc409b47
+	fromColumn: vwFactSalesDashboardRev.Product_Type_Key
+	toColumn: vwdimProduct_Types.Product_Type_Key
+
+relationship 71ca857a-1145-4e70-b779-4e6a5b2a85ed
+	fromColumn: vwFactSolutionPlan.ProductSolutionKey
+	toColumn: vwdimProductSolution.ProductSolutionKey
+
+relationship 9ea5d338-a9ae-431c-8b1e-d5300abe2305
+	fromColumn: vwFactSolutionPlan.SalesOrgKey
+	toColumn: vwdimSalesOrg.SalesOrgKey
+
+relationship a1ab48dd-647f-46d6-82a3-36a29502652b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_Calendar.Calendar_Date
+	toColumn: LocalDateTable_67b269d6-46c4-4cdd-ba9d-df1530638308.Date
+
+relationship 228984ff-80f3-4c68-9e85-37dafd7736c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_Calendar.YMD-number
+	toColumn: LocalDateTable_c42e3d4e-3fcd-4905-aed1-992dea993f65.Date
+
+relationship 78762ed9-d4f8-4421-9054-542d5799535b
+	fromColumn: vwFactSolutionPlan.Calendar_Key
+	toColumn: vw_Calendar.YMD-text
+
+relationship c9c38243-c4b9-4b62-a036-f65e48b1042c
+	fromColumn: vwFactSalesDashboardRev.Calendar_Key
+	toColumn: vw_Calendar.YMD-number
+
+relationship 0d49e369-d954-4b64-a8ce-00d242bcff4e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vw_Calendar.Dimension-Date
+	toColumn: LocalDateTable_e9f85ca7-d48b-4af6-a7f1-75067e1aaef9.Date
+
+relationship 0c17b083-ed7d-4044-bc42-067ba880fd59
+	fromColumn: vwFactSalesDashboardRev.BUGroupPresident
+	toColumn: Owners.BUGroupPresident
+
+relationship 3845e35e-cc46-49c9-897d-20ebfa559b70
+	fromColumn: vwdimProductSolution.BUGroupPresident
+	toColumn: Owners.BUGroupPresident
+
+relationship 1610200b-2fd1-95d1-b996-2b0624dbfcfb
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: vwRLS_CustomerConstraint.SLValue
+	toColumn: vwdimSalesOrg.CusJoin
+
+relationship 09e5e7fb-da9c-4782-91b7-b00a02f515f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: LastRefreshDate.'Last Refresh Date'
+	toColumn: LocalDateTable_92c55460-076f-4815-8c83-1e0ec69d167e.Date
+

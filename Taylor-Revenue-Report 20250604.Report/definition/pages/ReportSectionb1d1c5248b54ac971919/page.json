@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.3.0/schema.json",
+  "name": "ReportSectionb1d1c5248b54ac971919",
+  "displayName": "Revenue by Product Type",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterab609207604dcebd81e9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "vwdimSalesOrg"
+              }
+            },
+            "Property": "VerticalMarket"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "v",
+              "Entity": "vwdimSalesOrg",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "v"
+                              }
+                            },
+                            "Property": "VerticalMarket"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Intercompany|Intercompany'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Taylor Intercompany|Insurance Carriers'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Taylor Intercompany|Intercompany'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Taylor Intercompany|Taylor Intercompany'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod7",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "1f5fb3334a3985903dd8",
+      "target": "1fcd820a8889dd26917b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1f5fb3334a3985903dd8",
+      "target": "65a71e08abb2d681d873",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1fcd820a8889dd26917b",
+      "target": "1f5fb3334a3985903dd8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1fcd820a8889dd26917b",
+      "target": "65a71e08abb2d681d873",
+      "type": "DataFilter"
+    },
+    {
+      "source": "65a71e08abb2d681d873",
+      "target": "1fcd820a8889dd26917b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "65a71e08abb2d681d873",
+      "target": "1f5fb3334a3985903dd8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "51413c570c65c066ce5a",
+      "target": "1fcd820a8889dd26917b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "51413c570c65c066ce5a",
+      "target": "1f5fb3334a3985903dd8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "51413c570c65c066ce5a",
+      "target": "65a71e08abb2d681d873",
+      "type": "DataFilter"
+    }
+  ]
+}

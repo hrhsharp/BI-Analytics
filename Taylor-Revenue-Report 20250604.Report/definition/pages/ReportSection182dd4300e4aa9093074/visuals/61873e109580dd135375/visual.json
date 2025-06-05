@@ -1,0 +1,213 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.6.0/schema.json",
+  "name": "61873e109580dd135375",
+  "position": {
+    "x": 676.11940298507466,
+    "y": 77.014925373134332,
+    "z": 3000,
+    "height": 454.02985074626866,
+    "width": 603.58208955223881,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Data Notes ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#01b6b1"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "All Sources ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#01b6b1"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "    · ",
+                    "textStyle": {
+                      "fontFamily": "Symbol",
+                      "fontSize": "12pt"
+                    }
+                  },
+                  {
+                    "value": "Revenue Data shown on these reports does not contain monthly revenue accruals or adjustments/entries made directly to the GL (exception may be customer rebates or GPO admin fees if provided by the source and are included in the data as part of Channel 75).",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10.5pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "    ·",
+                    "textStyle": {
+                      "fontFamily": "Symbol",
+                      "fontSize": "10.5pt"
+                    }
+                  },
+                  {
+                    "value": "  ",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman",
+                      "fontSize": "10.5pt"
+                    }
+                  },
+                  {
+                    "value": "Not all Taylor Companies or Channels provide budget data."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "    ·",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "  ",
+                    "textStyle": {
+                      "fontFamily": "Times New Roman"
+                    }
+                  },
+                  {
+                    "value": "Legacy source indicates what Taylor company/application is providing the revenue data - this report does not contain revenue from all Taylor companies or applications."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "    · ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Channel assignment of revenue is dependent upon the correct product type code from the source and the mapping for mapping to channel."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t· ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "BU Leader mapping is dependent upon the channel and source mapping."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "    · ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Sales assignment is dependent upon Account Assignments managed by the Sales Admin team.  If no assignment is found in the Account Assignment tool, some source system data could be used. "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t· ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Buying Groups are maintained by FP&A to roll associated accounts up into a group, however this grouping is not maintained for all customers."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t· ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Intercompany and Taylor Intercompany revenue is excluded from most dashboards, with the exception that both P&SS dashboards allow for Taylor Intercompany to be included (this exclusion is dependent upon the inbound data being flagged as intercompany or the account being flagged). There is a separate Intercompany dashboard also included."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t· ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Revenue values can contain manual adjustments which are processed by Sales Admin or Finance."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "\t· ",
+                    "textStyle": {
+                      "fontFamily": "Symbol"
+                    }
+                  },
+                  {
+                    "value": "Accurate mapping of plant or warehouse is dependent upon source data and Master Data. Also, system and business processes might also come into play (ie. Customer Owned product would show as Unknown plant)."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

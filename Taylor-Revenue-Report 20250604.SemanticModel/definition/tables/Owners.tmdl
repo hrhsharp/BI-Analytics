@@ -1,0 +1,17 @@
+table Owners
+	lineageTag: e781e15d-a53a-49c0-8c29-2bc6eba1fff6
+
+	column BUGroupPresident
+		lineageTag: 1ee738c7-93e4-4762-a1ae-fcc0ee747b42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: vwdimProductSolution[BUGroupPresident]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Owners = calculated
+		mode: import
+		source = DISTINCT(vwdimProductSolution[BUGroupPresident])
+
+	annotation PBI_Id = c104d8d2a8f34a679fdf761be9eca6e4
+
