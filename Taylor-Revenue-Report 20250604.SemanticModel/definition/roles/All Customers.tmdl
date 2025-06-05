@@ -1,5 +1,0 @@
-role 'All Customers'
-	modelPermission: read
-
-	annotation PBI_Id = 14bdb0b2cea9478fbc924f0a1fcf0ff3
-
